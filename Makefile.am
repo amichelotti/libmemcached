@@ -45,7 +45,7 @@ include libmemcached/include.am
 include libmemcached-1.0/include.am
 else
 
-include libtest/include.am
+# include libtest/include.am
 
 include libhashkit-1.0/include.am
 include libmemcached-1.0/include.am
@@ -76,7 +76,7 @@ include libmemcachedinternal/include.am
 include libmemcachedinternal/util/include.am
 include rpm/include.mk
 include support/include.am
-include tests/include.am
+#include tests/include.am
 include util/include.am
 include win32/include.am
 

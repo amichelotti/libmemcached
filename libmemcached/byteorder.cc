@@ -59,7 +59,11 @@ static inline uint64_t swap64(uint64_t in)
 }
 #endif
 
-
+#ifdef HAVE_HTONLL
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <inttypes.h>
+#endif
 uint64_t memcached_ntohll(uint64_t value)
 {
 #ifdef HAVE_HTONLL

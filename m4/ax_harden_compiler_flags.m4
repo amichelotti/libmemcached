@@ -89,7 +89,7 @@ AC_DEFUN([_SET_SANITIZE_FLAGS],
 
 AC_DEFUN([_WARNINGS_AS_ERRORS],
     [AC_CACHE_CHECK([if all warnings into errors],[ac_cv_warnings_as_errors],
-      [AS_IF([test "x$ac_cv_vcs_checkout" = xyes],[ac_cv_warnings_as_errors=yes],
+      [AS_IF([test "x$ac_cv_vcs_checkout" = xyes],[ac_cv_warnings_as_errors=no],
         [ac_cv_warnings_as_errors=no])
       ])
     ])
@@ -234,8 +234,6 @@ AC_DEFUN([_HARDEN_CC_COMPILER_FLAGS],
                   _APPEND_COMPILE_FLAGS_ERROR([-fstack-protector-all])
                   ])])])])
 
-         AS_IF([test "x$ac_cv_warnings_as_errors" = xyes],
-             [AX_APPEND_FLAG([-Werror])])
 
           AC_LANG_POP([C])
   ])
@@ -339,8 +337,6 @@ AC_DEFUN([_HARDEN_CXX_COMPILER_FLAGS],
 
           _SET_SANITIZE_FLAGS
 
-          AS_IF([test "x$ac_cv_warnings_as_errors" = xyes],
-                [AX_APPEND_FLAG([-Werror])])
           AC_LANG_POP([C++])
   ])
 
